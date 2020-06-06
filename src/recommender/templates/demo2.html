@@ -1,0 +1,448 @@
+$def with (startPOI, length, inputform,result1, result2, result3, poiNm1, poiNm2, poiNm3, poiTheme1, poiTheme2, poiTheme3)   
+ <link href="/static/css/bootstrap.min.css "rel="stylesheet" type="text/css" >
+    <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat|Patua+One|Ubuntu|Karla|Arvo|BioRhyme|Algreya|B612" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Earth Rotation Animation | CSS</title>
+    <style>
+#navbar{
+	 background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	position:fixed;
+	
+}
+
+li{
+opacity:0.7;
+color:#ff0080;
+text-decoration:none;
+font-family:'Aclonica';
+font-size:40px;
+}
+
+a{
+text-decoration:none;	
+color:#FFF;
+font-family:'Aclonica';
+font-size:40px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+a:hover{
+text-decoration:none;	
+color:#302ed1;
+}
+
+.login-wrap{
+    padding:5% 5%;
+	width:100%;
+	
+	max-width:525px;
+	position:relative;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f3c5bd+0,db3600+0,e57a00+65,db3600+100 */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3c5bd', endColorstr='#db3600',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+
+
+.login-form{
+
+	position:relative;
+	-webkit-perspective:1000px;
+	        perspective:1000px;
+	-webkit-transform-style:preserve-3d;
+	        transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#FFFFFF;
+    font-weight:bold;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.5);
+}
+.login-form .group input[data-type="password"]{
+	
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#FFF;
+	font-size:18px;
+    text-align:left;
+}
+.login-form .group .button{
+	color:#12023f;
+        background-color:#faf9f9;
+        font-weight:bold;
+        font-size:18px;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+
+.login-form .group .check:checked + label{
+	color:#FFF;
+}
+.login-form .group .check:checked + label .icon{
+	background:#e46226;
+}
+
+        body, html {
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+body {
+   background:-webkit-radial-gradient(#16093a, #0d0525, #03000c);
+   background:radial-gradient(#16093a, #0d0525, #03000c);
+}
+
+option{
+color:#000;
+}
+
+#map,#map2,#map3 {
+        height: 500px;
+       width: 100%;
+	 color:black;
+       float: left;
+       border: thin solid #333;
+	font-family:'Aclonica';
+      }
+
+
+    </style>
+    <script type="text/javascript" src="./static/js/geoxml3.js"></script>
+</head>
+<body>
+
+
+    <nav id="navbar" class="navbar navbar-fixed-top" style="z-index:10; padding:0 0 0 2px; height:120px; width:100%;  box-shadow: 0 4px 13px 0 rgba(255, 255, 255, 0.3); background:black;);">
+        <div class="container-fluid" style="padding:0px; margin:0px;">
+          
+          
+          <div class="navbar-header">
+<a  href="./"><img src="./static/image/logo.png" style=" height:60px;"></a>
+</div>
+          <ul class="nav navbar-nav" style="padding:0px; margin:0px;">
+          
+      <a href="./"><p style="padding:5px; font-size:58px; margin:0px; text-decoration:none; hover:none; font-family:B612; color:rgb(150,189,13); font-weight: bolder;">TRVLR</p></a>
+          </ul>  
+
+          <ul class="nav navbar-nav navbar-right" style="padding-top:5px; padding-bottom:5px; font-size:40px;">
+          <li class="active"><a href="./" style="margin:12px;">Home</a></li>
+
+          </ul>
+        </div>
+      </nav>
+
+
+      <div style="height:120px;">
+
+      </div>
+
+
+    <div class="container-fluid fixed-sidebar" style="z-index:1;">
+        <div class="row">
+        <div class="col-md-3" style="box-shadow: 0 4px 13px 0 rgba(255, 255, 255, 0.3); height:3000px; ">
+
+            <div class="login-wrap">
+                <div class="login-form">
+                    <form method="POST" style="font-size:25px;">
+                        <div class="group">
+                            <label for="username" style="font-size:30px;" class="label">Starting POI</label>
+                            <select id="cars" class="input" name="startPOI" color="#000" >
+						<option value="none">Select POI</option>
+						<option value="0">Arts Precinct</option>
+						<option value="1">Docklands</option>
+						<option value="2">Government Precinct</option>
+						<option value="3">Little Italy</option>
+						<option value="4">RMIT City</option>
+						<option value="5">Southbank</option>
+						<option value="6">Sports and Entertainment Precinct</option>
+						<option value="7">University of Melbourne</option>
+						<option value="8">Block Arcade</option>
+						<option value="9">Bourke Street</option>
+						<option value="10">Bridge Road</option>
+						<option value="11">Brunswick Street</option>
+						<option value="12">Chapel Street</option>
+						<option value="13">Centre Place</option>
+						<option value="14">Collins Street</option>
+						<option value="15">Degraves Street</option>
+						<option value="16">Elizabeth Street</option>
+						<option value="17">Flinders Lane</option>
+						<option value="18">Little Collins Street</option>
+						<option value="19">Melbourne Central Shopping Centre</option>
+						<option value="20">Pran Central</option>
+						<option value="21">Queen Victoria Market</option>
+						<option value="22">Queen Victoria Village</option>
+						<option value="23">Royal Arcade</option>
+						<option value="24">Swanston Street</option>
+						<option value="25">Crown Casino and Entertainment Complex</option>
+						<option value="26">Luna Park</option>
+						<option value="27">Melbourne Aquarium</option>
+						<option value="28">Melbourne Zoo</option>
+						<option value="29">Australian Centre for Contemporary Art</option>
+						<option value="30">Ian Potter Museum of Art</option>
+						<option value="31">NGV International</option>
+						<option value="32">General Post Office</option>
+						<option value="33">Government House</option>
+						<option value="34">Melbourne Observatory</option>
+						<option value="35">Melbourne Town Hall</option>
+						<option value="36">Old Melbourne Gaol</option>
+						<option value="37">Old Melbourne Magistrates' Court</option>
+						<option value="38">Old Melbourne Mint</option>
+						<option value="39">Old Treasury Building</option>
+						<option value="40">Parliament House</option>
+						<option value="41">State Library of Victoria</option>
+						<option value="42">Supreme Court of Victoria</option>
+						<option value="43">Victoria Barracks</option>
+						<option value="44">Arts Centre</option>
+						<option value="45">Eureka Tower</option>
+						<option value="46">Melbourne Convention and Exhibition Centre</option>
+						<option value="47">Melbourne Star</option>
+						<option value="48">Royal Exhibition Building</option>
+						<option value="49">Shrine of Remembrance</option>
+						<option value="50">St Paul's Cathedral</option>
+						<option value="51">St Patrick's Cathedral</option>
+						<option value="52">Melbourne Rectangular Stadium (AAMI Park)</option>
+						<option value="53">Docklands Stadium (Etihad Stadium)</option>
+						<option value="54">Flemington Racecourse</option>
+						<option value="55">Margaret Court Arena</option>
+						<option value="56">Melbourne Multi Purpose Venue (Hisense Arena)</option>
+						<option value="57">Melbourne Cricket Ground (MCG)</option>
+						<option value="58">Melbourne Grand Prix Circuit</option>
+						<option value="59">Melbourne Sports and Aquatic Centre (MSAC)</option>
+						<option value="60">Lakeside Stadium</option>
+						<option value="61">National Ice Sports Centre (O'Brien Group Arena)</option>
+						<option value="62">Olympic Park Stadium</option>
+						<option value="63">Rod Laver Arena</option>
+						<option value="64">Royal Melbourne Golf Club</option>
+						<option value="65">Princes Park (Ikon Park)</option>
+						<option value="66">Albert Park and Lake</option>
+						<option value="67">Alexandra Gardens</option>
+						<option value="68">Birrarung Marr</option>
+						<option value="69">Carlton Gardens</option>
+						<option value="70">City Square</option>
+						<option value="71">Federation Square</option>
+						<option value="72">Fitzroy Gardens</option>
+						<option value="73">Flagstaff Gardens</option>
+						<option value="74">Kings Domain</option>
+						<option value="75">Queen Victoria Gardens</option>
+						<option value="76">Royal Botanic Gardens</option>
+						<option value="77">Royal Park</option>
+						<option value="78">Treasury Gardens</option>
+						<option value="79">Yarra Park</option>
+						<option value="80">Bolte Bridge</option>
+						<option value="81">Capital City Trail</option>
+						<option value="82">Flinders Street station</option>
+
+					</select><div class="post" style="display: none;"></div>
+                        </div>
+                        <div class="group">
+                            <label for="password" style="font-size:30px;" class="label">No. Of Places</label>
+                            <select id="cars" class="input" name="length" color="#000">
+						<option value="none">Select no. of POI</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+			</select><div class="post" style="display: none;"></div>
+                        </div>
+                        <br/><br/>
+                        <div class="group">
+                            <input for="Recommend" type="submit" class="button" style="font-size:30px;"value="RECOMMEND" id="Login"><div class="post" style="display: none;"></div>
+                        </div>
+                </form>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        </div>
+        <div class="col-md-9" style="height:3000px; background-image:url(./static/image/Melbourne.jpg); background-color: rgb(23, 182, 36); background-size: cover; box-shadow: 0 4px 13px 0 rgba(255, 255, 255, 0.3);">
+                <div class="col-md-12 " style="padding:2%;">
+                    <div class="panel panel-default " style="background-color: rgb(0, 0, 0,0.8); color:#FFF;">
+                        <div class="panel-heading" style="background-color: rgb(0, 0, 0,0.8); border-color:rgb(255, 255, 255,0.2); color:#FFF;">  
+                        <h1 style="font-size:40px;">POI Recommendation based on poiPopularity</h1>
+                         </div>
+                        <div class="panel-body container">
+                            <div class="col-md-11"> 
+                                <table class="table table-user-information" >
+                                    <tbody style="font-size:28px;">
+					<tr>
+						<th>NAME OF THE POIs</th>
+						<th>THEME</th>
+					</tr>
+                                    	$for i in range(len(poiNm1)):
+                                    	<tr>
+		                        	<td>$poiNm1[i]</td>
+		                        	<td>$poiTheme1[i]</td>
+                                    	</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+  
+                    <div class="container-fluid" style="height: 500px;"><div id="map"></div></div>
+                </div>
+
+
+
+ 
+                    <div class="panel panel-default " style="background-color: rgb(0, 0, 0,0.8); color:#FFF;">
+                        <div class="panel-heading" style="background-color: rgb(0, 0, 0,0.8); border-color:rgb(255, 255, 255,0.2); color:#FFF;">  
+                        <h1 >POI Recommendation based on poiRank</h1>
+                         </div>
+                        <div class="panel-body container">
+                            <div style="font-size:40px;"> 
+                                <table class="table table-user-information" >
+                                    <tbody style="font-size:28px;">
+                                    	<tr>
+						<th>NAME OF THE POIs</th>
+						<th>THEME</th>
+					</tr>
+                                    	$for i in range(len(poiNm2)):
+                                    	<tr>
+		                        	<td>$poiNm2[i]</td>
+		                        	<td>$poiTheme2[i]</td>
+                                    	</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                  
+                    <div class="container-fluid" style="height: 500px;"><div id="map2"></div></div>
+                </div>
+
+
+		<div class="panel panel-default " style="background-color: rgb(0, 0, 0,0.8); color:#FFF;">
+                        <div class="panel-heading" style="background-color: rgb(0, 0, 0,0.8); border-color:rgb(255, 255, 255,0.2); color:#FFF;">  
+                        <h1 >POI Recommendation based on Markov Chains</h1>
+                         </div>
+                        <div class="panel-body container">
+                            <div style="font-size:40px;"> 
+                                <table class="table table-user-information" >
+                                    <tbody style="font-size:28px;">
+                                    	<tr>
+						<th>NAME OF THE POIs</th>
+						<th>THEME</th>
+					</tr>
+                                    	$for i in range(len(poiNm3)):
+                                    	<tr>
+		                        	<td>$poiNm3[i]</td>
+		                        	<td>$poiTheme3[i]</td>
+                                    	</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                  
+                    <div class="container-fluid" style="height: 500px;"><div id="map3"></div></div>
+                </div>
+        <div>
+    </div>
+</div>
+
+
+<script>
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: {lat: 41.876, lng: -87.624}
+  });
+  var map2 = new google.maps.Map(document.getElementById('map2'), {
+    zoom: 10,
+    center: {lat: 41.876, lng: -87.624}
+  });
+  var map3 = new google.maps.Map(document.getElementById('map3'), {
+    zoom: 10,
+    center: {lat: 41.876, lng: -87.624}
+  });
+
+  var kmlParser1 = new geoXML3.parser({ map: map });
+  var m = kmlParser1.parse('./static/kml/poi1.kml')
+
+  var kmlParser2 = new geoXML3.parser({ map: map2 });
+  kmlParser2.parse('./static/kml/poi2.kml')
+
+  var kmlParser3 = new geoXML3.parser({ map: map3 });
+  kmlParser3.parse('./static/kml/poi3.kml')
+}
+
+var kmlLayer = new google.maps.KmlLayer(m, {
+          suppressInfoWindows: true,
+          preserveViewport: false,
+          map: map
+        });
+        kmlLayer.addListener('click', function(event) {
+          var content = event.featureData.infoWindowHtml;
+          var testimonial = document.getElementById('capture');
+          testimonial.innerHTML = content;
+        });
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCALagXiWhPN9Ytq-s6dyyCFV-6awzPBD4&callback=initMap">
+    </script>
+</body>
+</html>

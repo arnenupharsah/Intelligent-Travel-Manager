@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="1">
+    <name>POIs</name>
+    <description>POIs visualization</description>
+    <visibility>1</visibility>
+    <Style id="style1">
+      <LineStyle>
+        <color>9f0000ff</color>
+        <width>2</width>
+      </LineStyle>
+    </Style>
+    <Placemark id="12">
+      <name>Chapel Street</name>
+      <description>POI Name: Chapel Street&lt;br/&gt;Category: Shopping&lt;br/&gt;Coordinates: (-37.840830, 144.995280)&lt;br/&gt;URL: https://en.wikipedia.org/wiki/Chapel_Street,_Melbourne</description>
+      <visibility>1</visibility>
+      <styleUrl>#style1</styleUrl>
+      <ExtendedData>
+        <Data name="video">
+          <value>![CDATA[&lt;iframe name='Framename' width='480' height='360' src='https://en.wikipedia.org/wiki/Chapel_Street,_Melbourne' frameborder='0'&gt;&lt;/iframe&gt;&lt;br&gt;&lt;br&gt;]]</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>144.995280,-37.840830</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="49">
+      <name>Shrine of Remembrance</name>
+      <description>POI Name: Shrine of Remembrance&lt;br/&gt;Category: Structures&lt;br/&gt;Coordinates: (-37.830434, 144.973258)&lt;br/&gt;URL: https://en.wikipedia.org/wiki/Shrine_of_Remembrance</description>
+      <visibility>1</visibility>
+      <styleUrl>#style1</styleUrl>
+      <ExtendedData>
+        <Data name="video">
+          <value>![CDATA[&lt;iframe name='Framename' width='480' height='360' src='https://en.wikipedia.org/wiki/Shrine_of_Remembrance' frameborder='0'&gt;&lt;/iframe&gt;&lt;br&gt;&lt;br&gt;]]</value>
+        </Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>144.973258,-37.830434</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
