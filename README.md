@@ -27,10 +27,10 @@ YFCC100M dataset
 
 Steps to make this project work:
 
-$ tar xvzf web.py-0.40.tar.gz
-$ cd web.py-0.40
-$ sudo python setup.py install
-cd intelligent-travel-manager/src/recommender
+$ tar xvzf web.py-0.40.tar.gz<br>
+$ cd web.py-0.40<br>
+$ sudo python setup.py install<br>
+cd intelligent-travel-manager/src/recommender<br>
 python3 demo.py
 
 Then visit: `http://0.0.0.8080`
